@@ -84,7 +84,7 @@ let h1testo = document.createTextNode('Testo di prova');
 h1.appendChild(h1testo)
 riferimento.appendChild(h1) */
 
-let titoloCarotoso = document.getElementById("titolo_carotoso");
+/* 
 titoloCarotoso.style.color ="orange";
 
 let nuovoParagrapho = document.createElement("p");
@@ -117,3 +117,58 @@ console.log("Cognome: "+cgnome.value)
 document.getElementById("sabmìtted").innerHTML = nome.value+" "+cgnome.value;
 }
 
+ */
+
+function aggiungi(){
+    let lista =document.getElementById("lista");
+    let elemento = document.getElementById("elemento");
+    console.log(elemento.value);   
+
+    let idElemento = document.getElementsByTagName("li").length;
+
+    
+    let indiciLista=document.getElementsByTagName("li");
+
+    let nuovoElemento =document.createElement("li");
+    nuovoElemento.id = idElemento;
+    nuovoElemento.innerHTML = elemento.value;
+
+
+    let bottoneElimina = document.createElement("button");
+    bottoneElimina.innerHTML ="elimina";
+    bottoneElimina.type="button";
+    bottoneElimina.name="elimina"
+
+    bottoneElimina.onclick= function (){
+        return elimina(idElemento);
+    } 
+
+    nuovoElemento.appendChild(bottoneElimina);
+    lista.appendChild(nuovoElemento);
+    
+    if(elemento.value == ""){
+        console.log("fesso")
+        return elimina(idElemento);
+    }
+}
+function elimina(elemento){
+    let lunghezzaLista = document.getElementsByTagName("li").length;
+    console.log(lunghezzaLista)
+
+    let daRimuovere = document.getElementById(elemento);
+    daRimuovere.parentNode.removeChild(daRimuovere);
+    
+    let idCorrente = parseInt(elemento);
+    console.log("Id pre correzione: "+idCorrente);
+
+    lunghezzaLista = document.getElementsByTagName("li").length;
+    console.log(lunghezzaLista)
+
+    if(idCorrente<lunghezzaLista){
+        for(let i = idCorrente;i<lunghezzaLista;i++){
+            let idSuperiore = document.querySelector("[id='"+(i+1)+"']");
+            idSuperiore.id = i;
+        }
+    }
+    console.log("Id post correzione: "+idCorrente);
+}
