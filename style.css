@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+body{
+    font-family: 'Comfortaa', cursive;
+}
+
+.container{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 1140px;
+}
+@keyframes colorchange {
+    0% {
+        color: #ffffff;
+    }
+    
+    20% {
+        color: #cccccc;
+    }
+    
+    40% {
+        color: #999999;
+    }
+    
+    60% {
+        color: #666666;
+    }
+    
+    80% {
+        color: #333333;
+    }
+    
+    100% {
+        color: #ffffff;
+    }  
+}
+
+h1, h2{
+    animation: colorchange 2.5s infinite alternate;
+    text-align: center;
+}
+
+h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    
+}
+
+h2{
+    font-size: 2rem ;
+    margin-top: 15%;
+}
+
+button{
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    display: inline-block;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 3px rgba(255,255,255,0.3); 
+    padding: 0.375rem 0.75rem;
+
+    
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

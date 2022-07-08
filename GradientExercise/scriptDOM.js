@@ -172,6 +172,50 @@ function elimina(elemento){
     }
     console.log("Id post correzione: "+idCorrente);
 } */
+//creating nodes
+var container = document.createElement('div');
+var titolo = document.createElement('h1');
+var paragrafo = document.createElement('h2');
+var bottone = document.createElement('button');
+//applying class names
+container.className='container';
+//creating starting gradient
+var gradientValue1 = '#ffffff';
+var gradientValue2 = '#ffffff';
+var gradientStyling =`linear-gradient(to right, ${gradientValue1}, ${gradientValue2})`;
+var gradient = `background:${gradientStyling} ;`;
+//creating text nodes
+var testoTitolo= document.createTextNode('CLICK THE BUTTON BELOW TO GENERATE A RANDOM GRADIENT HEX COLOR COMBINATION');
+var testoParagrafo= document.createTextNode(gradient);
+var testoBottone = document.createTextNode('Click Me');
+//aplyying text nodes
+titolo.appendChild(testoTitolo);
+paragrafo.appendChild(testoParagrafo);
+bottone.appendChild(testoBottone);
+//setting onclick event
+bottone.onclick = function(){
+    return newGradient();
+};
+//creating page
+document.body.appendChild(container);
+container.appendChild(titolo);
+container.appendChild(paragrafo);
+container.appendChild(bottone);
+//random hexcolor function
+function randomHexColor(){
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+//new gradient change function
+function newGradient(){
+//generating gradients
+    gradientValue1 = randomHexColor();
+    gradientValue2 = randomHexColor();
+    gradientStyling =`linear-gradient(to right, ${gradientValue1}, ${gradientValue2})`;
+//applying to bg & showing gradient formula
+    document.body.style.background = gradientStyling;
+    gradient = `background:${gradientStyling} ;`;
+    paragrafo.innerHTML = gradient;
+}
 
 
 
